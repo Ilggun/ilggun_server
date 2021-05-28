@@ -1,5 +1,6 @@
 package com.ilggun.backend.user.service;
 
+import com.ilggun.backend.advice.exception.CUserNotFoundException;
 import com.ilggun.backend.response.CommonResult;
 import com.ilggun.backend.response.ListResult;
 import com.ilggun.backend.response.ResponseService;
@@ -40,10 +41,10 @@ public class UserService {
     }
 
     @Transactional
-    public SingleResult<User> findByUserId(Long id) {
+    public SingleResult<User> findByUserId(Long id){
         return responseService.getSingleResult(
                 userRepository
                         .findById(id)
-                        .orElseThrow(() -> new IllegalArgumentException("해당 아이디가 존재하지 않습니다.")));
+                        .orElseThrow(CUserNotFoundException::new));
     }
 }
