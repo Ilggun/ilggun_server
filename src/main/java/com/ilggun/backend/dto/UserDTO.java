@@ -1,2 +1,4 @@
-package com.ilggun.backend.dto;public class UserDTO {
+package com.ilggun.backend.dto;
+
+public class UserDTO {
 }

@@ -1,0 +1,22 @@
+server:
+  address: localhost
+  port: 8080
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ilggun?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 11111
+
+    jpa:
+      generate-ddl: false
+      show-sql: true
+      hibernate:
+        ddl-auto: update
+
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+          format_sql: true
+          show_sql: true
+          use_sql_comments: true
