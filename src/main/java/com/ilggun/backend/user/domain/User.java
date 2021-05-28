@@ -1,6 +1,6 @@
 package com.ilggun.backend.user.domain;
 
-import com.ilggun.backend.BaseTimeEntity;
+import com.ilggun.backend.config.BaseTimeEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
