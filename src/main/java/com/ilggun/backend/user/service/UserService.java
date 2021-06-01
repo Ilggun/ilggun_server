@@ -9,7 +9,6 @@ import com.ilggun.backend.user.domain.User;
 import com.ilggun.backend.user.domain.UserRepository;
 import com.ilggun.backend.user.dto.UserSaveRequestDto;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.boot.model.naming.IllegalIdentifierException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,11 +26,6 @@ public class UserService {
     @Transactional
     public CommonResult delete(Long id) {
         userRepository.deleteById(id);
-        //        try {
-        //            userRepository.deleteById(id);
-        //        } catch (Exception e) {
-        //            return responseService.getFailResult();
-        //        }
         return responseService.getSuccessResult();
     }
 
@@ -41,7 +35,7 @@ public class UserService {
     }
 
     @Transactional
-    public SingleResult<User> findByUserId(Long id){
+    public SingleResult<User> findByUserId(Long id) {
         return responseService.getSingleResult(
                 userRepository
                         .findById(id)
