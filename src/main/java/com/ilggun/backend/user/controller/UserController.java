@@ -45,7 +45,8 @@ public class UserController {
     @ApiOperation(value = "개별 회원 정보 조회", notes = "개별 회원의 정보를 조회합니다.")
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public SingleResult<User> findUserById(@ApiParam(value = "회원 고유 아이디", required = true) @PathVariable Long id) {
+    public SingleResult<User> findUserById(
+            @ApiParam(value = "회원 고유 아이디", required = true) @PathVariable Long id) {
         return userService.findByUserId(id);
     }
 }
