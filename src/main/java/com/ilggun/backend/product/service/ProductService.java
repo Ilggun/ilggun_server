@@ -2,6 +2,7 @@ package com.ilggun.backend.product.service;
 
 import com.ilggun.backend.advice.exception.CProductNotFoundException;
 import com.ilggun.backend.advice.exception.CUserNotFoundException;
+import com.ilggun.backend.product.dto.ProductListResponseDto;
 import com.ilggun.backend.product.dto.ProductSaveRequestDto;
 import com.ilggun.backend.product.domain.Product;
 import com.ilggun.backend.product.domain.ProductRepository;
@@ -15,6 +16,8 @@ import com.ilggun.backend.user.domain.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -33,8 +36,10 @@ public class ProductService {
 
     // 모든 제품 검색
     @Transactional
-    public ListResult<Product> findAllProduct() {
-        return responseService.getListResult(productRepository.findAll());
+    public ListResult<ProductListResponseDto> findAllProduct() {
+        return responseService.getListResult(
+                productRepository
+                        .findAll().stream().map(ProductListResponseDto::new).collect(Collectors.toList()));
     }
 
     // 제품 id로 제품 정보 검색
@@ -65,13 +70,13 @@ public class ProductService {
 
     // 사용자 보유 제품 정보 검색
     @Transactional
-    public ListResult<Product> findByUserId(Long id) {
+    public ListResult<ProductListResponseDto> findByUserId(Long id) {
         return responseService.getListResult(
                 productRepository.findByUserId(
                         userRepository
                                 .findById(id)
                                 .orElseThrow(CUserNotFoundException::new)
-                                .getId()));
+                                .getId()).stream().map(ProductListResponseDto::new).collect(Collectors.toList()));
     }
 
 }

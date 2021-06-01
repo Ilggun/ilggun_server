@@ -11,7 +11,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table
+@Table(name = "data")
 public class Data extends WriteTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -7,6 +7,8 @@ import com.ilggun.backend.data.service.DataService;
 import com.ilggun.backend.response.ListResult;
 import com.ilggun.backend.response.SingleResult;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -29,6 +31,14 @@ public class DataController {
         return dataService.save(requestDto);
     }
 
+    @ApiImplicitParams({
+            @ApiImplicitParam(
+                    name = "X-AUTH-TOKEN",
+                    value = "로그인 성공 후 access_token",
+                    required = true,
+                    dataType = "String",
+                    paramType = "header")
+    })
     @ApiOperation(value = "제품 id로 데이터 검색", notes = "제품의 id로 데이터를 검색합니다.")
     @GetMapping("")
     @ResponseStatus(HttpStatus.OK)

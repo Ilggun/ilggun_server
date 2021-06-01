@@ -22,14 +22,4 @@ public class UserSaveRequestDto {
         this.email = email;
         this.phone = phone;
     }
-
-    public User toEntity() {
-        return User.builder()
-                .name(name)
-                .username(username)
-                .password(password)
-                .email(email)
-                .phone(phone)
-                .build();
-    }
 }
