@@ -31,9 +31,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)     // JWT 로 인증하므로 세션은 필요없으니 생성 안함.
                 .and()
                 .authorizeRequests()            // 다음 리퀘스트에 대한 사용권한 체크.
-                .antMatchers("/*/signin", "/*/signup").permitAll()              // 가입 및 인증 주소는 누구나 접근 가능.
+                .antMatchers("/api/v1/signin", "/api/v1/signup").permitAll()              // 가입 및 인증 주소는 누구나 접근 가능.
                 .antMatchers(HttpMethod.POST, "/api/v1/data/**").permitAll()     // DATA API 에 접근하는 POST METHOD 는 모두 접근 가능. (개선 필요)
+                .antMatchers(HttpMethod.GET, "/api/v1/user").hasRole("ADMIN")
                 .anyRequest().hasRole("USER")   // 그 외 나머지 요청은 모두 인증된 회원만 접근 가능
+                .and()
+                .exceptionHandling().authenticationEntryPoint(new CustomAuthenticationEntryPoint())
                 .and()
                 // JWT 필터를 ID / PASSWORD 인증 필터 전에 넣는다.
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
