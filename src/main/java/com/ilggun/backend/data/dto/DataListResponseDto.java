@@ -3,19 +3,21 @@ package com.ilggun.backend.data.dto;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ilggun.backend.data.domain.Data;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+@Getter
 public class DataListResponseDto {
-    private Long id;
-    private double gas;
-    private double humidity;
-    private double smoke;
-    private double temperature;
+    private final Long id;
+    private final double gas;
+    private final double humidity;
+    private final double smoke;
+    private final double temperature;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime time;
+    private final LocalDateTime time;
 
     public DataListResponseDto(Data entity) {
         this.id = entity.getId();
