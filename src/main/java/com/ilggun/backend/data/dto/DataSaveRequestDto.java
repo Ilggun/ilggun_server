@@ -1,6 +1,5 @@
 package com.ilggun.backend.data.dto;
 
-import com.ilggun.backend.data.domain.Data;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

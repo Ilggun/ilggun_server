@@ -2,6 +2,7 @@ package com.ilggun.backend.response;
 
 import lombok.Getter;
 import lombok.Setter;
+
 import java.util.List;
 
 /**

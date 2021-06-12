@@ -1,6 +1,5 @@
 package com.ilggun.backend.user.dto;
 
-import com.ilggun.backend.user.domain.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

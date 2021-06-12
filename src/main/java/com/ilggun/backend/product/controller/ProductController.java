@@ -1,8 +1,8 @@
 package com.ilggun.backend.product.controller;
 
+import com.ilggun.backend.product.domain.Product;
 import com.ilggun.backend.product.dto.ProductListResponseDto;
 import com.ilggun.backend.product.dto.ProductSaveRequestDto;
-import com.ilggun.backend.product.domain.Product;
 import com.ilggun.backend.product.dto.ProductUpdateRequestDto;
 import com.ilggun.backend.product.service.ProductService;
 import com.ilggun.backend.response.CommonResult;
