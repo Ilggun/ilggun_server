@@ -1,0 +1,36 @@
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+server:
+  address: localhost
+  port: 8080
+spring:
+  messages:
+    basename: i18n/exception
+    encoding: UTF-8
+
+  profiles:
+    include:
+      - aws
+
+  datasource:
+    driverClassName: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://daitda.ckgxusuue8oz.ap-northeast-2.rds.amazonaws.com:3306/ilggun
+    username: youngbeom0908
+    password: Vmfkdl99!!
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      use-new-id-generator-mappings: false
+    show-sql: true
+    properties:
+      hibernate.enable_lazy_load_no_trans: true
+      hibernate.format_sql: true
+
+  jwt:
+    secret: govlepel@$&
