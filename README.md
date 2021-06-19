@@ -167,7 +167,7 @@ UsersService.java
 ## 주요 API  
 [API 문서 with Swagger](http://15.165.207.6:8080/swagger-ui.html)  
 <p align="center">
-<img  alt="API" src="https://user-images.githubusercontent.com/66074802/122636830-3b5f5d00-d126-11eb-82ee-bb4df5b6be50.png">
+<img  alt="API" src="https://user-images.githubusercontent.com/66074802/122636884-8da07e00-d126-11eb-983b-f3ac36cf7fd2.png">
 </p>
 <br>
   
